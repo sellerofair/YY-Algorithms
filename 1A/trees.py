@@ -13,7 +13,7 @@ def count_trees(P, V, Q, M):
     # Intersection compensation calculating
     max_start = max(P_start, Q_start)
     min_end = min(P_end, Q_end)
-``
+
     if max_start <= min_end:
         compensation = count_trees_in_section(min_end, max_start)
     else:
