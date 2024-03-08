@@ -16,7 +16,7 @@ def test_asserts_list(testing_function, asserts_list):
     print('Tests passed')
 
 
-commentator_asserts_list = [
+asserts_list = [
     [['0:0', '0:0', '1'], 1],
     [['0:2', '0:3', '1'], 5],
     [['0:2', '0:3', '2'], 6],
@@ -30,4 +30,4 @@ commentator_asserts_list = [
     [['3:2', '0:2', '2'], 1]
 ]
 
-test_asserts_list(count_goals_for_victory, commentator_asserts_list)
+test_asserts_list(count_goals_for_victory, asserts_list)

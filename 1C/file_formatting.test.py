@@ -1,4 +1,4 @@
-from commentator import count_goals_for_victory
+import file_formatting
 
 
 def test_asserts_list(testing_function, asserts_list):
@@ -16,18 +16,21 @@ def test_asserts_list(testing_function, asserts_list):
     print('Tests passed')
 
 
-commentator_asserts_list = [
-    [['0:0', '0:0', '1'], 1],
-    [['0:2', '0:3', '1'], 5],
-    [['0:2', '0:3', '2'], 6],
-    [['0:0', '0:0', '2'], 1],
-    [['2:2', '3:3', '1'], 0],
-    [['2:2', '3:3', '2'], 1],
-    [['5:0', '0:5', '2'], 1],
-    [['5:0', '0:5', '1'], 1],
-    [['1:0', '0:0', '1'], 0],
-    [['1:3', '1:0', '1'], 2],
-    [['3:2', '0:2', '2'], 1]
+asserts_list = [
+    [[1], 1],
+    [[4], 1],
+    [[12], 3],
+    [[9], 3],
+    [[0], 0],
+    [[5], 2],
+    [[7], 3],
+    [[6], 3]
 ]
 
-test_asserts_list(count_goals_for_victory, commentator_asserts_list)
+test_asserts_list(file_formatting.count_keystrokes_in_string, asserts_list)
+
+asserts_list = [
+    [[[1, 4, 12, 9, 0]], 8]
+]
+
+test_asserts_list(file_formatting.count_keystrokes, asserts_list)

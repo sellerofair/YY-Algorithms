@@ -15,7 +15,7 @@ def test_asserts_list(testing_function, asserts_list):
     print('Tests passed')
 
 
-trees_asserts_list = [
+asserts_list = [
     [[-5, 3, 6, 2], 12],
     [[-15, 3, -4, 2], 12],
     [[4, 3, 12, 5], 17],
@@ -24,4 +24,4 @@ trees_asserts_list = [
     [[12, 5, 4, 3], 17]
 ]
 
-test_asserts_list(count_trees, trees_asserts_list)
+test_asserts_list(count_trees, asserts_list)
