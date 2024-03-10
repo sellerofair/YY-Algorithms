@@ -2,6 +2,7 @@ from commentator import count_goals_for_victory
 
 
 def test_asserts_list(testing_function, asserts_list):
+    print(f'Testing "{testing_function.__name__}"')
 
     for i, assert_data in enumerate(asserts_list):
         assert_input = assert_data[0]

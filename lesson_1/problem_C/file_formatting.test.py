@@ -1,7 +1,8 @@
-import file_formatting
+from file_formatting import count_keystrokes_in_string, count_keystrokes
 
 
 def test_asserts_list(testing_function, asserts_list):
+    print(f'Testing "{testing_function.__name__}"')
 
     for i, assert_data in enumerate(asserts_list):
         assert_input = assert_data[0]
@@ -27,10 +28,10 @@ asserts_list = [
     [[6], 3]
 ]
 
-test_asserts_list(file_formatting.count_keystrokes_in_string, asserts_list)
+test_asserts_list(count_keystrokes_in_string, asserts_list)
 
 asserts_list = [
     [[[1, 4, 12, 9, 0]], 8]
 ]
 
-test_asserts_list(file_formatting.count_keystrokes, asserts_list)
+test_asserts_list(count_keystrokes, asserts_list)
