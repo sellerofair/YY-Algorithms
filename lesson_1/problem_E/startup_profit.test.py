@@ -3,8 +3,6 @@ from startup_profit import calculate_profit
 
 
 def test_asserts_list(testing_function, asserts_list):
-    sys.set_int_max_str_digits(1000000)
-
     for i, assert_data in enumerate(asserts_list):
         assert_input = assert_data[0]
         expected = assert_data[1]

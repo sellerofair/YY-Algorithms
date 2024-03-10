@@ -8,6 +8,11 @@
 import sys
 
 
+# Увеличение ограничения на длину чисел для преобразования в строку
+# Иначе будет ошибка
+# ValueError: Exceeds the limit (4300 digits) for integer string conversion
+sys.set_int_max_str_digits(1000000)
+
 def calculate_profit(n, k, d):
     profit = n
     new_profit = profit * 10
@@ -27,10 +32,5 @@ def calculate_profit(n, k, d):
 
 if __name__ == '__main__':
     (n, k, d) = list(map(int, input().split()))
-
-    # Увеличение ограничения на длину чисел для преобразования в строку
-    # Иначе будет ошибка
-    # ValueError: Exceeds the limit (4300 digits) for integer string conversion
-    sys.set_int_max_str_digits(1000000)
 
     print(calculate_profit(n, k, d))
