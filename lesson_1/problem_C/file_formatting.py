@@ -1,5 +1,6 @@
 SPACES_IN_TAB_COUNT = 4
 
+# Нажатия клавиш для одной строки
 def count_keystrokes_in_string(string_length):
 
     # Вычисляется максимально возможное количество табуляций и запоминается остаток
