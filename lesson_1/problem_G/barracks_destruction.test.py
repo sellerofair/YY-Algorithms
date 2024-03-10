@@ -22,7 +22,8 @@ asserts_list = [
     [[1, 2, 1], -1],
     [[1, 1, 1], 1],
     [[25, 200, 10], 13],
-    [[250, 500, 187], 4]
+    [[250, 500, 187], 4],
+    [[250, 500, 225], 7]
 ]
 
 test_asserts_list(destruct_barracks, asserts_list)

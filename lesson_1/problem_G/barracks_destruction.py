@@ -4,7 +4,7 @@
 
 # По максимуму урон на бараки
 # Остальное на воинов в бараках
-def attack_barracks_health(attackers_power, barracks_health, barracks_power):
+def attack_barracks_health(attackers_power, barracks_health, barracks_productivity, barracks_power):
     remained_power = max(attackers_power - barracks_health, 0)
     barracks_health -= attackers_power - remained_power
     barracks_power -= remained_power
@@ -13,15 +13,29 @@ def attack_barracks_health(attackers_power, barracks_health, barracks_power):
 
 # Уничтожаются все воины в бараках
 # Остальные воины атакуют бараки
-def attack_barracks_power(attackers_power, barracks_health, barracks_power):
-    barracks_health -= attackers_power - barracks_power
+def attack_barracks_power(attackers_power, barracks_health, barracks_productivity, barracks_power):
 
-    return barracks_health, 0
+    # Расчет возможности уничтожить казармы
+    barracks_destruction_available = False
+    if 0 < barracks_health < attackers_power:
+        remained_power = attackers_power - barracks_health
+        remained_barracks_power = barracks_power - remained_power
+        barracks_destruction_available = attackers_power >= remained_barracks_power * 2
+
+    if barracks_destruction_available:
+        barracks_health_damage = barracks_health
+        barracks_power_damage = attackers_power - barracks_health_damage
+    else:
+        barracks_power_damage = barracks_power
+        barracks_health_damage = attackers_power - barracks_power_damage
+
+    barracks_health -= barracks_health_damage
+    barracks_power -= barracks_power_damage
+
+    return barracks_health, barracks_power
 
 
 def destruct_barracks(attackers_power, barracks_health, barracks_productivity):
-    attackers_start_power = attackers_power
-    barracks_start_health = barracks_health
     barracks_power = 0
 
     # Выбор стратегии
@@ -34,10 +48,9 @@ def destruct_barracks(attackers_power, barracks_health, barracks_productivity):
     while barracks_health > 0 or barracks_power > 0:
         rounds_count += 1
 
-        print(attackers_power, barracks_health, barracks_power)
-
         # Ход нападающих
-        barracks_health, barracks_power = attac_barracks(attackers_power, barracks_health, barracks_power)
+        barracks_health, barracks_power = attac_barracks(attackers_power, barracks_health,
+                                                         barracks_productivity, barracks_power)
 
         # Ход казармы
         attackers_power -= barracks_power
