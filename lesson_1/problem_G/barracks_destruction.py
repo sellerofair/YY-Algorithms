@@ -25,7 +25,7 @@ def attack_barracks(game_state):
     barracks_health = game_state['barracks_health']
     barracks_productivity = game_state['barracks_productivity']
     barracks_power = game_state['barracks_power']
-    
+
     # Если сила атакующих не больше, чем производят бараки,
     # Шанс только по-максимуму бить казармы
     if attackers_power <= barracks_productivity:
